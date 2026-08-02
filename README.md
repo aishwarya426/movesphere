@@ -12,9 +12,9 @@
 
 # 🌐 Live Demo
 
-**🔗 Live Website:** https://movesphere-beta.vercel.app
+**Website:** https://movesphere-beta.vercel.app
 
-**💻 GitHub Repository:** https://github.com/aishwarya426/movesphere
+**GitHub Repository:** https://github.com/aishwarya426/movesphere
 
 ---
 
@@ -24,58 +24,66 @@ MoveSphere is a modern logistics and supply chain management platform built to s
 
 The project demonstrates full-stack development concepts including responsive UI design, REST API integration, authentication workflows, CRUD operations, Google Maps integration, and scalable React architecture.
 
-
 ---
 
 # ✨ Features
 
-##  Authentication
+## Authentication
+
 - User Registration
 - Secure Login
 - Local Session Management
 - Client-side Validation
 
 ## Inventory Management
+
 - View Inventory
 - Add Inventory Items
 - Edit Inventory Records
 - Search Inventory
 - Persistent Data Storage
 
-##  Fleet Management
+## Fleet Management
+
 - Manage Fleet Information
 - Vehicle Status Tracking
 - Add & Edit Vehicles
 - Dynamic Search
 
-##  Warehouse Management
+## Warehouse Management
+
 - Warehouse Records
 - Storage Management
 - Capacity Tracking
 - Warehouse Editing
 
-##  GPS & Maps
+## GPS & Maps
+
 - Google Maps Integration
 - Warehouse Location Visualization
 - Interactive Markers
 - Search Locations
 
-##  Legal Support
+## Legal Support
+
 - Legal Information Dashboard
 - Case Details
 - Court Information
 - Applicable Regulations
 
-##  Compliance Dashboard
+## Compliance Dashboard
+
 - Compliance Monitoring
 - Record Tracking
 - Status Management
 
-##  AI Chatbot
+## AI Chatbot
+
 - AI-assisted User Guidance
 - Logistics Support Interface
 
-##  Responsive Design
+## Responsive Design
+
 - Desktop Support
 - Tablet Friendly
 - Mobile Responsive
@@ -85,6 +93,7 @@ The project demonstrates full-stack development concepts including responsive UI
 # 🛠 Tech Stack
 
 ### Frontend
+
 - React.js
 - JavaScript (ES6)
 - HTML5
@@ -93,17 +102,21 @@ The project demonstrates full-stack development concepts including responsive UI
 - Axios
 
 ### Backend
+
 - Node.js
 - Express.js
 
 ### Database
+
 - MongoDB (Original Backend)
 - Browser Local Storage (Current Demo Version)
 
 ### APIs
+
 - Google Maps JavaScript API
 
 ### Tools
+
 - Git
 - GitHub
 - Visual Studio Code
@@ -152,32 +165,33 @@ Move into the project directory
 cd movesphere
 ```
 
+---
+
 # 📸 Application Preview
 
-##  Home Page
+## Home Page
 
 ![Home](assets/home.jpg)
 
 ---
 
-##  Dashboard
+## Dashboard
 
 ![Dashboard](assets/dashboard.jpg)
 
 ---
 
-##  Compliance
+## Compliance
 
 ![Compliance](assets/compliance.jpg)
 
 ---
 
-##  Legal & Court
+## Legal & Court Support
 
-![legal](assets/legal.jpg)
+![Legal](assets/legal.jpg)
 
 ---
-
 
 # 🎯 Future Enhancements
 
@@ -213,7 +227,7 @@ This project helped strengthen my understanding of:
 
 # 👨‍💻 Developer
 
-## **Aishwarya Tolani**
+## Aishwarya Tolani
 
 **GitHub**
 
@@ -233,6 +247,6 @@ This project is released under the **MIT License**.
 
 ## ⭐ Support
 
-If you found this project helpful or interesting, consider giving it a ⭐ on GitHub!
+If you found this project helpful or interesting, consider giving it a ⭐ on GitHub.
 
 Contributions, suggestions, and feedback are always welcome.
