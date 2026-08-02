@@ -24,7 +24,6 @@ MoveSphere is a modern logistics and supply chain management platform built to s
 
 The project demonstrates full-stack development concepts including responsive UI design, REST API integration, authentication workflows, CRUD operations, Google Maps integration, and scalable React architecture.
 
-For demonstration purposes, the deployed version uses browser Local Storage for data persistence, allowing the application to run independently without requiring backend or database setup.
 
 ---
 
@@ -167,21 +166,15 @@ cd movesphere
 
 ---
 
-## 📦 Inventory Management
+## 📦 Compliance
 
-![Inventory](assets/screenshots/inventory.png)
-
----
-
-## 🚛 Fleet Management
-
-![Fleet](assets/screenshots/fleet.png)
+![Compliance](assets/compliance.jpg)
 
 ---
 
-## 🏢 Warehouse Management
+## 🚛 Legal & Court
 
-![Warehouse](assets/screenshots/warehouse.png)
+![legal](assets/legal.jpg)
 
 ---
 
