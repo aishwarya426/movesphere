@@ -1,75 +1,99 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import '../styles/style.css';
 
-// Badge component for conditional or required
-const Badge = ({ kind, children }) => (
-  <span className={`cmp-badge ${kind === 'required' ? 'required' : 'conditional'}`}>
-    {children}
-  </span>
-);
-
-// New Badge style for city (blue box)
-const CityBadge = ({ city }) => (
-  <span className="city-badge">{city}</span>
-);
+const complianceData = [
+  {
+    id: 1,
+    category: 'Export Logistics',
+    city: 'Mumbai',
+    steps: [
+      'Register your business with IEC (Import Export Code).',
+      'Obtain GST registration.',
+      'Complete customs documentation.',
+      'Arrange port clearance before shipment.'
+    ]
+  },
+  {
+    id: 2,
+    category: 'Road Transport',
+    city: 'Delhi',
+    steps: [
+      'Obtain Commercial Vehicle Registration.',
+      'Apply for National Permit.',
+      'Purchase vehicle insurance.',
+      'Maintain Pollution Under Control (PUC) certificate.'
+    ]
+  },
+  {
+    id: 3,
+    category: 'Aviation Cargo',
+    city: 'Bengaluru',
+    steps: [
+      'Obtain DGCA approvals.',
+      'Ensure cargo screening compliance.',
+      'Verify airline documentation.',
+      'Follow aviation safety regulations.'
+    ]
+  },
+  {
+    id: 4,
+    category: 'Ports & Customs',
+    city: 'Chennai',
+    steps: [
+      'Submit Bill of Entry.',
+      'Pay applicable customs duty.',
+      'Complete cargo inspection.',
+      'Receive customs clearance.'
+    ]
+  },
+  {
+    id: 5,
+    category: 'Environment',
+    city: 'Hyderabad',
+    steps: [
+      'Apply for Pollution Control Board NOC.',
+      'Submit environmental assessment.',
+      'Obtain waste disposal approval.',
+      'Renew compliance annually.'
+    ]
+  }
+];
 
 const Compliance = () => {
-  const API = axios.create({
-    baseURL: process.env.REACT_APP_API_BASE_URL || '',
-  });
-
   const [category, setCategory] = useState('');
   const [city, setCity] = useState('');
   const [records, setRecords] = useState([]);
-  const [steps, setSteps] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [info, setInfo] = useState('');
 
   useEffect(() => {
-    loadComplianceRecords();
+    setRecords(complianceData);
   }, []);
 
-  const loadComplianceRecords = async () => {
-    setLoading(true);
-    setError('');
-    setInfo('');
+  const loadComplianceRecords = () => {
+    let filtered = complianceData;
 
-    try {
-      const params = {};
-      if (category && category.trim() !== '') params.category = category.trim();
-      if (city && city.trim() !== '') params.city = city.trim();
-
-      const response = await API.get('/api/compliance', { params });
-      const data = response.data;
-
-      if (Array.isArray(data) && data.length > 0) {
-        setRecords(data);
-      } else {
-        setInfo('No compliance records found for selected filters.');
-        setRecords([]);
-      }
-    } catch (err) {
-      console.error('Failed to load compliance records:', err);
-      setError('Failed to load compliance records from server.');
-      setRecords([]);
-    } finally {
-      setLoading(false);
+    if (category) {
+      filtered = filtered.filter(item =>
+        item.category.toLowerCase().includes(category.toLowerCase())
+      );
     }
-  };
 
-  // Parse steps string into array for display
-  const parseSteps = (stepsString) => {
-    if (typeof stepsString !== 'string') return [];
-    const stepsArray = stepsString.split(/\d+\.\s*/).filter(Boolean);
-    return stepsArray.map((desc) => desc.trim());
+    if (city.trim()) {
+      filtered = filtered.filter(item =>
+        item.city.toLowerCase().includes(city.toLowerCase())
+      );
+    }
+
+    setRecords(filtered);
   };
 
   return (
     <section className="section">
+
       <h2>Compliance Management</h2>
-      <p className="muted">Navigate regulatory requirements with step-by-step guidance and official links.</p>
+
+      <p className="muted">
+        Navigate regulatory requirements with step-by-step guidance.
+      </p>
 
       <form
         className="filters"
@@ -78,46 +102,61 @@ const Compliance = () => {
           loadComplianceRecords();
         }}
       >
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="">All Categories</option>
-          <option value="export">Export logistics</option>
-          <option value="road">Road transport (RTO/trucking)</option>
-          <option value="aviation">Aviation cargo</option>
-          <option value="ports">Ports & customs</option>
-          <option value="environment">Pollution NOCs</option>
+          <option value="Export">Export Logistics</option>
+          <option value="Road">Road Transport</option>
+          <option value="Aviation">Aviation Cargo</option>
+          <option value="Ports">Ports & Customs</option>
+          <option value="Environment">Environment</option>
         </select>
 
         <input
-          placeholder="City or PIN (optional)"
+          placeholder="City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
 
-        <button className="btn btn-primary" disabled={loading}>
-          {loading ? 'Loading…' : 'Load steps'}
+        <button
+          className="btn btn-primary"
+          type="submit"
+        >
+          Search
         </button>
+
       </form>
 
-      {error && <div className="alert warn">{error}</div>}
-      {info && <div className="alert success">{info}</div>}
+      <br />
 
-      <h3 className="cmp-subtitle">Compliance Records</h3>
+      {records.length === 0 ? (
+        <p>No compliance records found.</p>
+      ) : (
+        records.map((record) => (
+          <div
+            className="cmp-card record"
+            key={record.id}
+            style={{ marginBottom: "20px" }}
+          >
+            <h3>{record.category}</h3>
 
-      <div className="cmp-list">
-        {records.map((record) => (
-          <div className="cmp-card record" key={record.id} style={{ marginBottom: '20px' }}>
-            <h4>{record.category}</h4>
-            <CityBadge city={record.city} />
-            <div className="step-desc">
-              <ol>
-                {parseSteps(record.steps).map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ol>
-            </div>
+            <p>
+              <strong>City:</strong> {record.city}
+            </p>
+
+            <ol>
+              {record.steps.map((step, index) => (
+                <li key={index}>{step}</li>
+              ))}
+            </ol>
+
           </div>
-        ))}
-      </div>
+        ))
+      )}
+
     </section>
   );
 };
