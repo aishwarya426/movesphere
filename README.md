@@ -29,53 +29,53 @@ The project demonstrates full-stack development concepts including responsive UI
 
 # ✨ Features
 
-## 🔐 Authentication
+##  Authentication
 - User Registration
 - Secure Login
 - Local Session Management
 - Client-side Validation
 
-## 📦 Inventory Management
+## Inventory Management
 - View Inventory
 - Add Inventory Items
 - Edit Inventory Records
 - Search Inventory
 - Persistent Data Storage
 
-## 🚛 Fleet Management
+##  Fleet Management
 - Manage Fleet Information
 - Vehicle Status Tracking
 - Add & Edit Vehicles
 - Dynamic Search
 
-## 🏢 Warehouse Management
+##  Warehouse Management
 - Warehouse Records
 - Storage Management
 - Capacity Tracking
 - Warehouse Editing
 
-## 🗺 GPS & Maps
+##  GPS & Maps
 - Google Maps Integration
 - Warehouse Location Visualization
 - Interactive Markers
 - Search Locations
 
-## ⚖ Legal Support
+##  Legal Support
 - Legal Information Dashboard
 - Case Details
 - Court Information
 - Applicable Regulations
 
-## 📑 Compliance Dashboard
+##  Compliance Dashboard
 - Compliance Monitoring
 - Record Tracking
 - Status Management
 
-## 🤖 AI Chatbot
+##  AI Chatbot
 - AI-assisted User Guidance
 - Logistics Support Interface
 
-## 📱 Responsive Design
+##  Responsive Design
 - Desktop Support
 - Tablet Friendly
 - Mobile Responsive
@@ -154,25 +154,25 @@ cd movesphere
 
 # 📸 Application Preview
 
-## 🏠 Home Page
+##  Home Page
 
 ![Home](assets/home.jpg)
 
 ---
 
-## 📊 Dashboard
+##  Dashboard
 
 ![Dashboard](assets/dashboard.jpg)
 
 ---
 
-## 📦 Compliance
+##  Compliance
 
 ![Compliance](assets/compliance.jpg)
 
 ---
 
-## 🚛 Legal & Court
+##  Legal & Court
 
 ![legal](assets/legal.jpg)
 
