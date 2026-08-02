@@ -102,7 +102,7 @@ const Maps = () => {
         </div>
 
         <div className="map-container">
-          <LoadScript googleMapsApiKey="AIzaSyAQdYKsx9bubs4hEs9SqwQPyYyQralHPBo">
+          <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
               mapContainerStyle={{ width: '100%', height: '600px', borderRadius: '12px' }}
               center={mapCenter}
